@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}RSVP | Housewarming Party{% endblock %}
+{% block content %}
+  <section class="content-card">
+    <p class="eyebrow">RSVP</p>
+    <h1>Kindly let us know your attendance</h1>
+    <form method="post" class="form-card">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="form-grid">
+        <div>
+          <label for="id_full_name">Full Name</label>
+          {{ form.full_name }}
+        </div>
+        <div>
+          <label for="id_email">Email</label>
+          {{ form.email }}
+        </div>
+      </div>
+      <div class="form-grid">
+        <div>
+          <label for="id_phone_number">Phone Number</label>
+          {{ form.phone_number }}
+        </div>
+        <div>
+          <label for="id_guest_count">Number of Guests</label>
+          {{ form.guest_count }}
+        </div>
+      </div>
+      <div class="form-grid">
+        <div>
+          <label for="id_attending">Attendance</label>
+          {{ form.attending }}
+        </div>
+      </div>
+      <div>
+        <label for="id_message">Message to the Host</label>
+        {{ form.message }}
+      </div>
+      <button class="btn btn-primary" type="submit">Submit RSVP</button>
+    </form>
+  </section>
+{% endblock %}

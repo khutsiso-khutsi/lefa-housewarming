@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Home | Housewarming Party{% endblock %}
+{% block content %}
+  <section class="hero-card">
+    <div class="hero-copy">
+      <p class="eyebrow">Housewarming Party Invitation</p>
+      <h1>Lefa Phetla</h1>
+      <h2>Welcome to a new home and a new chapter</h2>
+      <p>Join us on 29 December 2026 at 2:00 PM onwards in Glencoe for a warm afternoon of celebration, conversation, and fellowship.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{% url 'event_details' %}">View Event Details</a>
+        <a class="btn btn-secondary" href="{% url 'rsvp' %}">RSVP Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <article class="info-card">
+      <h3>Warm Welcome</h3>
+      <p>As a school teacher, Lefa values grace, care, and community — and this gathering is shaped around exactly that spirit.</p>
+    </article>
+    <article class="info-card">
+      <h3>Celebration Details</h3>
+      <p>A relaxed afternoon from 2:00 PM onwards with family, friends, and heartfelt conversation.</p>
+    </article>
+    <article class="info-card">
+      <h3>Kindly Note</h3>
+      <p>Please let us know your attendance and any special wishes by replying through the RSVP page.</p>
+    </article>
+  </section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Gift Registry | Housewarming Party{% endblock %}
+{% block content %}
+  <section class="content-card">
+    <p class="eyebrow">Gift Registry</p>
+    <h1>A small selection of thoughtful gifts</h1>
+    <p class="muted">These options are offered with care and dignity. Please choose from the available selections below.</p>
+    <div class="gift-grid">
+      {% for gift in gifts %}
+        <article class="gift-card {% if not gift.available %}disabled{% endif %}">
+          <h3>{{ gift.name }}</h3>
+          <p>{{ gift.description }}</p>
+          <p class="availability">{{ gift.remaining }} of {{ gift.capacity }} remaining</p>
+          {% if gift.available %}
+            <form method="post" class="claim-form">
+              {% csrf_token %}
+              <input type="hidden" name="gift_name" value="{{ gift.name }}" />
+              {{ form.non_field_errors }}
+              <div>
+                <label for="claimant_name">Name</label>
+                <input type="text" name="claimant_name" class="form-control" required />
+              </div>
+              <div>
+                <label for="claimant_email">Email</label>
+                <input type="email" name="claimant_email" class="form-control" required />
+              </div>
+              <button class="btn btn-secondary" type="submit">Claim Gift</button>
+            </form>
+          {% else %}
+            <p class="availability full">Fully claimed</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

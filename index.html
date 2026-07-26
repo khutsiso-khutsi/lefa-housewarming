@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!-- Single-page invitation website for a housewarming celebration -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern digital invitation for Lefa Phetla's housewarming party."
+    />
+    <title>Lefa Phetla | Housewarming Party</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Hero section with event headline and navigation -->
+    <header class="hero" id="top">
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="#top">Lefa & Co.</a>
+        <ul class="nav-links">
+          <li><a href="#countdown">Countdown</a></li>
+          <li><a href="#details">Details</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+          <li><a href="#gifts">Gifts</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero-content reveal">
+        <p class="eyebrow">You are warmly invited to</p>
+        <h1>Lefa Phetla</h1>
+        <h2>Housewarming Party</h2>
+        <p class="hero-date">29 December 2026 • 2:00 PM onwards</p>
+        <a class="btn btn-primary" href="#rsvp">Scroll to RSVP</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section reveal" id="countdown">
+        <div class="section-card">
+          <p class="section-label">Countdown</p>
+          <h3>The celebration begins in</h3>
+          <div class="countdown-grid" aria-label="Countdown to the party">
+            <div class="countdown-item">
+              <span id="days">00</span>
+              <small>Days</small>
+            </div>
+            <div class="countdown-item">
+              <span id="hours">00</span>
+              <small>Hours</small>
+            </div>
+            <div class="countdown-item">
+              <span id="minutes">00</span>
+              <small>Minutes</small>
+            </div>
+            <div class="countdown-item">
+              <span id="seconds">00</span>
+              <small>Seconds</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="welcome">
+        <div class="section-card intro-card">
+          <p class="section-label">Welcome</p>
+          <h3>A warm welcome from Lefa</h3>
+          <p>
+            I am delighted to invite you into my new home and share this
+            special milestone with friends and family. Your presence will make
+            the day feel even more meaningful as we celebrate warmth, comfort,
+            and new beginnings together.
+          </p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="details">
+        <div class="section-card">
+          <p class="section-label">Event Details</p>
+          <div class="details-grid">
+            <article class="detail-card">
+              <span class="detail-icon">📅</span>
+              <h4>Date</h4>
+              <p>29 December 2026</p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">🕑</span>
+              <h4>Time</h4>
+              <p>2:00 PM onwards</p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">📍</span>
+              <h4>Location</h4>
+              <p>15 Willow Road, Glencoe, 2930</p>
+            </article>
+            <article class="detail-card">
+              <span class="detail-icon">👗</span>
+              <h4>Dress Code</h4>
+              <p>Smart casual</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="map">
+        <div class="section-card">
+          <p class="section-label">Venue Map</p>
+          <div class="map-card">
+            <iframe
+              title="Map showing the housewarming venue in Glencoe"
+              src="https://www.google.com/maps?q=15%20Willow%20Road%20Glencoe%202930%20South%20Africa&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="rsvp">
+        <div class="section-card form-card">
+          <p class="section-label">RSVP</p>
+          <h3>Kindly let us know if you can make it</h3>
+          <form id="rsvpForm" novalidate>
+            <div class="form-grid">
+              <label>
+                Full Name
+                <input type="text" id="fullName" name="fullName" required />
+              </label>
+              <label>
+                Number of Guests
+                <input type="number" id="guestCount" name="guestCount" min="1" required />
+              </label>
+            </div>
+            <div class="form-grid">
+              <label>
+                Email / Phone
+                <input type="text" id="contactInfo" name="contactInfo" required />
+              </label>
+              <label>
+                Attendance
+                <select id="attendance" name="attendance" required>
+                  <option value="">Select one</option>
+                  <option value="Yes">Yes, I will attend</option>
+                  <option value="No">Sorry, I can't make it</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Message / Note
+              <textarea id="message" name="message" rows="4"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Send RSVP</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gifts">
+        <div class="section-card">
+          <p class="section-label">Gift Registry</p>
+          <h3>Choose a gift idea for the new home</h3>
+          <div class="gift-grid" id="giftGrid">
+            <button class="gift-card" type="button" data-gift="kitchenware">
+              <span class="gift-icon">🍽️</span>
+              <h4>Kitchenware</h4>
+              <p>Elegant pieces for the heart of the home.</p>
+              <span class="gift-count" data-count="kitchenware">0 selected</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="decor">
+              <span class="gift-icon">🪴</span>
+              <h4>Home Décor</h4>
+              <p>Style and warmth for every room.</p>
+              <span class="gift-count" data-count="decor">0 selected</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="plants">
+              <span class="gift-icon">🌿</span>
+              <h4>Plants</h4>
+              <p>Fresh greens to brighten the space.</p>
+              <span class="gift-count" data-count="plants">0 selected</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="cash">
+              <span class="gift-icon">💵</span>
+              <h4>Cash Gift</h4>
+              <p>A thoughtful contribution toward the home.</p>
+              <span class="gift-count" data-count="cash">0 selected</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="vouchers">
+              <span class="gift-icon">🎁</span>
+              <h4>Vouchers</h4>
+              <p>Flexible gifting for the new homeowner.</p>
+              <span class="gift-count" data-count="vouchers">0 selected</span>
+            </button>
+          </div>
+          <p class="gift-note">Each gift option can be selected by up to 3 people.</p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="gallery">
+        <div class="section-card">
+          <p class="section-label">Gallery</p>
+          <h3>A peek at the new home and celebration mood</h3>
+          <div class="gallery-grid">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" alt="Bright modern living room with soft lighting" />
+              <figcaption>Living room warm welcome</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Stylish kitchen designed for gatherings" />
+              <figcaption>Kitchen ready for hosting</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80" alt="Dining table set for a festive celebration" />
+              <figcaption>Gathering around the table</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80" alt="Cozy balcony with greenery and decor" />
+              <figcaption>Outdoor space to enjoy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <p>Thank you for celebrating this special milestone with us.</p>
+      <div class="footer-actions">
+        <a href="mailto:lefa@example.com">lefa@example.com</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com" target="_blank" rel="noreferrer">Share on Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=Join%20me%20for%20a%20housewarming%20party!" target="_blank" rel="noreferrer">Share on Twitter</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
