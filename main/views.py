@@ -8,9 +8,9 @@ GIFT_OPTIONS = [
     {'slug': 'kitchenware', 'name': 'Kitchenware', 'description': 'A thoughtful addition for the heart of the home.', 'capacity': 3, 'claimed': 0},
     {'slug': 'decor', 'name': 'Home Décor', 'description': 'Elegant pieces to soften and style the rooms.', 'capacity': 3, 'claimed': 0},
     {'slug': 'plants', 'name': 'Garden Plants', 'description': 'Fresh greenery for a calm and welcoming home.', 'capacity': 3, 'claimed': 0},
-    {'slug': 'books', 'name': 'Books', 'description': 'A refined collection for quiet evenings and study.', 'capacity': 3, 'claimed': 0},
-    {'slug': 'cash', 'name': 'Cash Gift', 'description': 'A gracious contribution toward the new home.', 'capacity': 3, 'claimed': 0},
-    {'slug': 'vouchers', 'name': 'Gift Vouchers', 'description': 'Flexible and practical for furnishing the home.', 'capacity': 3, 'claimed': 0},
+    {'slug': 'books', 'name': 'Books', 'description': 'A refined collection for quiet evenings and study.', 'capacity': 1, 'claimed': 0},
+    {'slug': 'cash', 'name': 'Cash Gift', 'description': 'A gracious contribution toward the new home.', 'capacity': 5, 'claimed': 0},
+    {'slug': 'vouchers', 'name': 'Gift Vouchers', 'description': 'Flexible and practical for furnishing the home.', 'capacity': 5, 'claimed': 0},
 ]
 
 
@@ -49,7 +49,8 @@ def gifts(request):
         gift_name = request.POST.get('gift_name')
         if form.is_valid() and gift_name:
             current_count = GiftClaim.objects.filter(gift_name=gift_name).count()
-            if current_count >= 3:
+            gift_capacity = next((g['capacity'] for g in GIFT_OPTIONS if g['name'] == gift_name), 3)
+            if current_count >= gift_capacity:
                 messages.error(request, 'That gift option is no longer available.')
             else:
                 claim = form.save(commit=False)
